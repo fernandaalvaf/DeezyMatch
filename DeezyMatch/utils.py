@@ -83,7 +83,7 @@ def eval_map(list_of_list_of_labels,list_of_list_of_scores,randomize=True):
 
 
 # ------------------- string_split --------------------
-def string_split(x, tokenize=["char"], min_gram=1, max_gram=3):
+def string_split(x, tokenize=["char"], min_gram=1, max_gram=3, sep=""):
     """
     Split a string using various methods.
     min_gram and max_gram are used only if "ngram" is in tokenize
@@ -97,7 +97,7 @@ def string_split(x, tokenize=["char"], min_gram=1, max_gram=3):
             tokenized_str += [x[i:i+ngram] for i in range(len(x)-ngram+1)] 
     
     if "word" in tokenize:
-        tokenized_str += x.split()
+        tokenized_str += x.split(separator=sep)
     
     return tokenized_str
    

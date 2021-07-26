@@ -32,6 +32,8 @@ gru_lstm:
     # ONLY if "ngram" is selected in tokenize, the following args will be used:
     min_gram: 2
     max_gram: 3
+    # ONLY if "word" is selected in tokenize, the following arg (separator) will be used:
+    sep: "-"
   bidirectional: True    # if True, becomes a bidirectional RNN/GRU/LSTM
   # num_layers
   # number of recurrent layers. e.g., setting num_layers=2 means stacking two 

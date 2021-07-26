@@ -105,11 +105,13 @@ def csv_split_tokenize(dataset_path, pretrained_vocab_path=None, n_train_example
     dataset_split["s1_unicode"] = dataset_split["s1_unicode"].apply(lambda x: string_split(x, 
                                                                                            tokenize=mode["tokenize"], 
                                                                                            min_gram=mode["min_gram"], 
-                                                                                           max_gram=mode["max_gram"]))
+                                                                                           max_gram=mode["max_gram"],
+                                                                                           sep = mode["sep"]))
     dataset_split["s2_unicode"] = dataset_split["s2_unicode"].apply(lambda x: string_split(x, 
                                                                                            tokenize=mode["tokenize"], 
                                                                                            min_gram=mode["min_gram"], 
-                                                                                           max_gram=mode["max_gram"]))
+                                                                                           max_gram=mode["max_gram"],
+                                                                                           sep = mode["sep"]))
 
     s1_s2_flatten = dataset_split[["s1_unicode", "s2_unicode"]].to_numpy().flatten()
     s1_s2_flatten_all_tokens = np.unique(np.hstack(s1_s2_flatten)).tolist()
